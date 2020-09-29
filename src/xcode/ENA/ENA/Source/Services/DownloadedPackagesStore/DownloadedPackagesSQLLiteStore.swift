@@ -46,7 +46,7 @@ final class DownloadedPackagesSQLLiteStore {
 
 extension DownloadedPackagesSQLLiteStore: DownloadedPackagesStore {
 	func open() {
-		_ = queue.sync {
+		queue.sync {
 			self.database.open()
 			self.database.executeStatements(
 			"""
