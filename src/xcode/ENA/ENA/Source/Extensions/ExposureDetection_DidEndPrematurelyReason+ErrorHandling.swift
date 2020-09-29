@@ -25,10 +25,11 @@ extension ExposureDetection.DidEndPrematurelyReason {
 		guard case let ExposureDetection.DidEndPrematurelyReason.noSummary(error) = self else {
 			return nil
 		}
-		guard let unwrappedError = error else {
-			return nil
+
+		guard error == nil else {
+			return rootController.setupErrorAlert(message: localizedDescription)
 		}
 
-		return rootController.setupErrorAlert(message: localizedDescription)
+		return nil
 	}
 }
