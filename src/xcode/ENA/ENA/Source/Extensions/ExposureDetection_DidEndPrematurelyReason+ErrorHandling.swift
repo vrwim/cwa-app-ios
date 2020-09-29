@@ -29,15 +29,6 @@ extension ExposureDetection.DidEndPrematurelyReason {
 			return nil
 		}
 
-		switch unwrappedError {
-		case let unwrappedError as ENError:
-			return rootController.setupErrorAlert(
-				message: localizedDescription
-			)
-		default:
-			return rootController.setupErrorAlert(
-				message: localizedDescription
-			)
-		}
+		return rootController.setupErrorAlert(message: localizedDescription)
 	}
 }
